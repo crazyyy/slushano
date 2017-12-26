@@ -1,0 +1,359 @@
+.cashboxWidget-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10000000;
+    display: none;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    background: rgba(0, 0, 0, 0.3);
+    color: #000;
+}
+
+.cashboxWidget-modal-dialog {
+    position: relative;
+}
+
+.cashboxWidget-modal-content {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    outline: 0;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
+}
+
+.cashboxWidget-modal-header {
+    padding: 15px 15px 0px 15px;
+    border-bottom: 1px solid #f4f4f4;
+    background-color: #1481e6;
+}
+
+.cashboxWidget-close {
+    float: right;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .8;
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    margin-top: -2px;
+}
+
+.cashboxWidget-close:focus, .cashboxWidget-close:hover {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    filter: alpha(opacity=50);
+    opacity: 1;
+}
+
+.cashboxWidget-modal-title {
+    font-size: 18px;
+    margin: 0;
+    line-height: 1.42857143;
+    font-weight: 500;
+}
+
+.cashboxWidget-modal-body {
+    position: relative;
+    padding: 15px;
+}
+
+.cashboxWidget-modal-dialog .cashboxWidget-nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    border-bottom: 1px solid #ddd;
+    display: inline-block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.cashboxWidget-modal-dialog .cashboxWidget-nav>li {
+    position: relative;
+    display: block;
+    float: left;
+    margin-bottom: -1px;
+    padding: 0;
+}
+
+.cashboxWidget-modal-dialog .cashboxWidget-nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+
+.cashboxWidget-nav>li.active>a,
+.cashboxWidget-nav>li.active>a:focus,
+.cashboxWidget-nav>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+.cashboxWidget-nav>li>a:hover {
+    border-color: #eee #eee #ddd;
+}
+
+.cashboxWidget-nav>li>a:hover,
+.cashboxWidget-nav>li>a:active,
+.cashboxWidget-nav>li>a:focus {
+    color: #444;
+    background: #f7f7f7;
+}
+
+.cashboxWidget-nav>li>a>img {
+    max-width: none;
+}
+
+.cashboxWidget-tab-content>.cashboxWidget-tab-pane {
+    display: none;
+}
+
+.cashboxWidget-tab-pane.active {
+    display: block;
+}
+
+.cashboxWidget-form-group {
+    margin-bottom: 15px;
+}
+
+.cashboxWidget-modal-body .cashboxWidget-form-group label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+}
+
+.cashboxWidget-modal-body .cashboxWidget-form-group.has-error label {
+  color: #dd4b39;
+}
+.cashboxWidget-modal-body .cashboxWidget-form-group.has-error .cashboxWidget-form-control {
+  border-color: #dd4b39;
+  box-shadow: none;
+}
+
+.cashboxWidget-modal-body .cashboxWidget-form-group .cashboxWidget-form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #d2d6de;
+    box-sizing: border-box;
+}
+
+.cashboxWidget-modal-body .cashboxWidget-form-group .cashboxWidget-form-control:focus {
+    border-color: #3c8dbc;
+    box-shadow: none;
+    outline: none;
+}
+
+.cashboxWidget-modal-dialog .h3,
+.cashboxWidget-modal-dialog h3 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.cashboxWidget-modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #f4f4f4;
+}
+
+.cashboxWidget-modal-body .cashboxWidget-btn,
+.cashboxWidget-modal-footer .cashboxWidget-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background-color: #3c8dbc;
+    border-color: #367fa9;
+    color: #fff;
+}
+
+
+
+@media (min-width: 768px) {
+    .cashboxWidget-modal-dialog {
+        width: 600px;
+        margin: 30px auto;
+    }
+}
+
+
+/*btns*/
+.cashbox-btn{
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  height: inherit;
+}
+
+.cashbox-btn-lg{
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+.cashbox-btn-sm{
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.cashbox-btn-xs{
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.cashbox-btn-white {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.cashbox-btn-black {
+  color: #fff;
+  background-color: #101010;
+  border-color: #000;
+}
+
+.cashbox-btn-red {
+  color: #fff;
+  background-color: #e02719;
+  border-color: #c32216;
+}
+
+.cashbox-btn-orange {
+  color: #fff;
+  background-color: #e07519;
+  border-color: #c56919;
+}
+
+.cashbox-btn-yellow {
+  color: #fff;
+  background-color: #e0be19;
+  border-color: #caab16;
+}
+
+.cashbox-btn-green {
+  color: #fff;
+  background-color: #73c518;
+  border-color: #64ad13;
+}
+
+.cashbox-btn-skyblue {
+  color: #fff;
+  background-color: #18b5c5;
+  border-color: #149fad;
+}
+
+.cashbox-btn-blue {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.cashbox-btn-violet {
+  color: #fff;
+  background-color: #7931af;
+  border-color: #59257f;
+}
+
+.cashboxWidgetBannerImg {
+    cursor: pointer;
+}
+
+.cashbox-callout-info {
+    font-size: 14px;
+    color: #fff !important;
+    background-color: #00c0ef !important;
+    border-radius: 3px;
+    margin: 0 0 20px 0;
+    padding: 15px 30px 15px 15px;
+    line-height: 1.42857143;
+    /*border-left: 5px solid #0097bc;*/
+}
+
+@media (max-width: 768px) {
+  .cashboxWidget-modal{
+    max-width: 100%;
+    max-height: 100%;
+    overflow: scroll;
+  }
+}
