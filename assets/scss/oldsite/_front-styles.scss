@@ -1,0 +1,118 @@
+.animate {
+  -webkit-transition-duration: .35s;
+  transition-duration: .35s;
+}
+
+.float100 {
+  float: left;
+  width: 100%;
+}
+
+.twoe_vk_msg_form_wrapper {
+  float: left;
+  width: 100%;
+  border: 1px solid #cdcdcd;
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .twoe_vk_msg_form_title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .twoe_vk_msg_form_desc {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: #777;
+    margin-top: 5px;
+  }
+
+  .twoe_vk_msg_form {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+
+    .twoe_vk_msg_form_item {
+      float: left;
+      width: 100%;
+
+      + .twoe_vk_msg_form_item {
+        margin-top: 15px;
+      }
+
+      &.twoe_vk_msg_form_item_error {
+        background: #d61818;
+        padding: 10px;
+        font-size: 13px;
+        line-height: 17px;
+        color: #fff;
+        border-radius: 5px;
+      }
+    }
+
+    textarea {
+      margin: 0;
+      padding: 10px;
+      height: 120px;
+      resize: vertical;
+      outline: none;
+      float: left;
+      width: 100%;
+      border: 1px solid #cdcdcd;
+      background: #fff;
+      border-radius: 5px;
+
+      &.error {
+        border-color: #d61818;
+      }
+    }
+
+    label {
+      float: left;
+      width: 100%;
+
+      input[type="checkbox"] {
+        display: inline-block;
+
+        &.error + span {
+          color: #d61818;
+        }
+      }
+
+      span {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: 13px;
+        line-height: 13px;
+        color: #555;
+      }
+    }
+
+    .twoe_vk_msg_form_submit {
+      padding: 0 15px 0 15px;
+      margin: 0;
+      height: 30px;
+      outline: none;
+      border-radius: 5px;
+      background: #ccc;
+      color: #222;
+
+      &:hover {
+        background: #dedede;
+      }
+    }
+  }
+}

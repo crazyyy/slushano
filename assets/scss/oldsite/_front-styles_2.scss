@@ -1,0 +1,244 @@
+.animate {
+  -webkit-transition-duration: .35s;
+  transition-duration: .35s;
+}
+
+.float100 {
+  float: left;
+  width: 100%;
+}
+
+.twoe_vk_gp_front_post_meta .fpm-item + .fpm-item {
+  margin-left: 10px;
+}
+
+.twoe_vk_gp_front_attached-link {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background: #f9f9f9;
+
+  .i {
+    float: left;
+    width: 100px;
+    padding-right: 10px;
+  }
+
+  .text {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  .t {
+    text-decoration: underline !important;
+  }
+
+  .d {
+    font-style: italic;
+    display: block;
+    text-decoration: none !important;
+    color: #666666;
+  }
+
+  a {
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-decoration: none !important;
+
+    &:hover .t {
+      text-decoration: none !important;
+    }
+  }
+}
+
+.twoe_vk_gp_images_galery {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+
+  + p {
+    margin-top: 15px;
+  }
+
+  .twoe_vk_gp_images_galery_item {
+    position: relative;
+    top: 0;
+    left: 0;
+    float: left;
+    overflow: hidden;
+    width: 50%;
+    height: 90px;
+    padding: 3px;
+
+    .twoe_vk_gp_images_galery_item_in {
+      position: relative;
+      top: 0;
+      left: 0;
+      float: left;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      float: left;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      -webkit-transition: all .3s ease-in-out;
+      transition: all .3s ease-in-out;
+    }
+  }
+
+  &.items1 .twoe_vk_gp_images_galery_item.item_1 {
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  &.items2 .twoe_vk_gp_images_galery_item {
+    &.item_1, &.item_2 {
+      width: 50%;
+      height: 160px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &.items3 .twoe_vk_gp_images_galery_item {
+    &.item_1, &.item_2 {
+      width: 50%;
+      height: 160px;
+      padding-top: 0;
+    }
+
+    &.item_3 {
+      width: 100%;
+      height: 320px;
+      padding-bottom: 0;
+    }
+  }
+
+  &.items4 .twoe_vk_gp_images_galery_item {
+    &.item_1, &.item_2 {
+      height: 160px;
+      padding-top: 0;
+    }
+
+    &.item_1 {
+      width: 40%;
+    }
+
+    &.item_2 {
+      width: 60%;
+    }
+
+    &.item_3, &.item_4 {
+      height: 160px;
+      padding-bottom: 0;
+    }
+
+    &.item_3 {
+      width: 60%;
+    }
+
+    &.item_4 {
+      width: 40%;
+    }
+  }
+
+  &.items5 .twoe_vk_gp_images_galery_item {
+    &.item_1, &.item_2 {
+      width: 50%;
+      height: 160px;
+      padding-top: 0;
+    }
+
+    &.item_3, &.item_4, &.item_5 {
+      width: 33.333%;
+      padding-bottom: 0;
+    }
+  }
+
+  &.items6 .twoe_vk_gp_images_galery_item {
+    &.item_1, &.item_2 {
+      width: 50%;
+      height: 160px;
+      padding-top: 0;
+    }
+
+    &.item_3, &.item_4, &.item_5, &.item_6 {
+      width: 25%;
+      padding-bottom: 0;
+    }
+  }
+
+  &.items7 .twoe_vk_gp_images_galery_item {
+    &.item_1, &.item_2, &.item_3 {
+      width: 33.333%;
+      height: 160px;
+      padding-top: 0;
+    }
+
+    &.item_4, &.item_5, &.item_6, &.item_7 {
+      width: 25%;
+      padding-bottom: 0;
+    }
+  }
+
+  &.items8 .twoe_vk_gp_images_galery_item {
+    &.item_1, &.item_2, &.item_3 {
+      width: 33.333%;
+      height: 160px;
+      padding-top: 0;
+    }
+
+    &.item_4, &.item_5, &.item_6 {
+      width: 33.333%;
+    }
+
+    &.item_7, &.item_8 {
+      width: 50%;
+      height: 160px;
+      padding-bottom: 0;
+    }
+  }
+
+  &.items9 .twoe_vk_gp_images_galery_item {
+    &.item_1, &.item_2 {
+      width: 50%;
+      height: 160px;
+      padding-top: 0;
+    }
+
+    &.item_3, &.item_4, &.item_5, &.item_6 {
+      width: 25%;
+    }
+
+    &.item_7, &.item_8, &.item_9 {
+      width: 33.333%;
+      height: 120px;
+      padding-bottom: 0;
+    }
+  }
+
+  &.items10 .twoe_vk_gp_images_galery_item {
+    &.item_1, &.item_2, &.item_3 {
+      width: 33.333%;
+      height: 160px;
+      padding-top: 0;
+    }
+
+    &.item_4, &.item_5, &.item_6, &.item_7 {
+      width: 25%;
+    }
+
+    &.item_8, &.item_9, &.item_10 {
+      width: 33.333%;
+      height: 120px;
+      padding-bottom: 0;
+    }
+  }
+}
