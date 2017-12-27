@@ -55,6 +55,9 @@ function wpeHeaderScripts() {
     wp_register_script('modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), '2.8.3');
     wp_enqueue_script('modernizr');
 
+    wp_register_script('tooltipster', '//cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js', array(), '3.3.0');
+    wp_enqueue_script('tooltipster');
+
     wp_deregister_script( 'jquery-form' );
 
     //  Load footer scripts (footer.php)
@@ -185,23 +188,22 @@ if (function_exists('register_sidebar')) {
     'name' => __('Блок виджетов #1', 'wpeasy'),
     'description' => __('Description for this widget-area...', 'wpeasy'),
     'id' => 'widgetarea1',
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'before_widget' => '<div id="%1$s" class="styled-block no-padding widget %2$s">',
     'after_widget' => '</div>',
-    'before_title' => '<h6>',
-    'after_title' => '</h6>'
+    'before_title' => '<div class="sb-title">',
+    'after_title' => '</div'
   ));
+
   //  Define Sidebar Widget Area 2. If your want to display more widget - uncoment this
-  /*
   register_sidebar(array(
-    'name' => __('Блок виджетов #2', 'wpeasy'),
+    'name' => __('Виджеты подвала', 'wpeasy'),
     'description' => __('Description for this widget-area...', 'wpeasy'),
     'id' => 'widgetarea2',
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'before_widget' => '<div id="%1$s" class="block widget %2$s">',
     'after_widget' => '</div>',
-    'before_title' => '<h6>',
-    'after_title' => '</h6>'
+    'before_title' => '<span class="title">',
+    'after_title' => '</span>'
   ));
-  */
 }
 
 //  Custom Excerpts
@@ -430,7 +432,7 @@ function easy_breadcrumbs() {
   $separator          = ' &raquo; ';
   $breadcrums_id      = 'breadcrumbs';
   $breadcrums_class   = 'breadcrumbs';
-  $home_title         = __('Home', 'wpeasy');
+  $home_title         = 'Главная';
 
   // If you have any custom post types with custom taxonomies, put the taxonomy name below (e.g. product_cat)
   $custom_taxonomy    = 'categories';
@@ -442,15 +444,15 @@ function easy_breadcrumbs() {
   if ( !is_front_page() ) {
 
     // Build the breadcrums
-    echo '<ul id="' . $breadcrums_id . '" class="' . $breadcrums_class . '">';
+    echo '<div id="' . $breadcrums_id . '" class="' . $breadcrums_class . '">';
 
     // Home page
-    echo '<li class="item-home"><a class="bread-link bread-home" href="' . get_home_url() . '" title="' . $home_title . '">' . $home_title . '</a></li>';
-    echo '<li class="separator separator-home"> ' . $separator . ' </li>';
+    echo '<span><span class="item-home"><a class="bread-link bread-home" href="' . get_home_url() . '" title="' . $home_title . '">' . $home_title . '</a></span></span>';
+    echo '<span class="separator separator-home"> ' . $separator . ' </span>';
 
         if ( is_archive() && !is_tax() && !is_category() && !is_tag() ) {
 
-            echo '<li class="item-current item-archive"><span class="bread-current bread-archive">' . post_type_archive_title($prefix, false) . '</span></li>';
+            echo '<span class="item-current item-archive"><span class="bread-current bread-archive">' . post_type_archive_title($prefix, false) . '</span></span>';
 
         } else if ( is_archive() && is_tax() && !is_category() && !is_tag() ) {
 
@@ -463,13 +465,13 @@ function easy_breadcrumbs() {
                 $post_type_object = get_post_type_object($post_type);
                 $post_type_archive = get_post_type_archive_link($post_type);
 
-                echo '<li class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $post_type_archive . '" title="' . $post_type_object->labels->name . '">' . $post_type_object->labels->name . '</a></li>';
-                echo '<li class="separator"> ' . $separator . ' </li>';
+                echo '<span class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $post_type_archive . '" title="' . $post_type_object->labels->name . '">' . $post_type_object->labels->name . '</a></span>';
+                echo '<span class="separator"> ' . $separator . ' </span>';
 
             }
 
             $custom_tax_name = get_queried_object()->name;
-            echo '<li class="item-current item-archive"><span class="bread-current bread-archive">' . $custom_tax_name . '</span></li>';
+            echo '<span class="item-current item-archive"><span class="bread-current bread-archive">' . $custom_tax_name . '</span></span>';
 
         } else if ( is_single() ) {
 
@@ -482,8 +484,8 @@ function easy_breadcrumbs() {
                 $post_type_object = get_post_type_object($post_type);
                 $post_type_archive = get_post_type_archive_link($post_type);
 
-                echo '<li class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $post_type_archive . '" title="' . $post_type_object->labels->name . '">' . $post_type_object->labels->name . '</a></li>';
-                echo '<li class="separator"> ' . $separator . ' </li>';
+                echo '<span class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $post_type_archive . '" title="' . $post_type_object->labels->name . '">' . $post_type_object->labels->name . '</a></span>';
+                echo '<span class="separator"> ' . $separator . ' </span>';
 
             }
 
@@ -502,8 +504,8 @@ function easy_breadcrumbs() {
                 // Loop through parent categories and store in variable $cat_display
                 $cat_display = '';
                 foreach($cat_parents as $parents) {
-                    $cat_display .= '<li class="item-cat">'.$parents.'</li>';
-                    $cat_display .= '<li class="separator"> ' . $separator . ' </li>';
+                    $cat_display .= '<span class="item-cat">'.$parents.'</span>';
+                    $cat_display .= '<span class="separator"> ' . $separator . ' </span>';
                 }
 
             }
@@ -523,25 +525,25 @@ function easy_breadcrumbs() {
             // Check if the post is in a category
             if(!empty($last_category)) {
                 echo $cat_display;
-                echo '<li class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</span></li>';
+                echo '<span class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</span></span>';
 
             // Else if post is in a custom taxonomy
             } else if(!empty($cat_id)) {
 
-                echo '<li class="item-cat item-cat-' . $cat_id . ' item-cat-' . $cat_nicename . '"><a class="bread-cat bread-cat-' . $cat_id . ' bread-cat-' . $cat_nicename . '" href="' . $cat_link . '" title="' . $cat_name . '">' . $cat_name . '</a></li>';
-                echo '<li class="separator"> ' . $separator . ' </li>';
-                echo '<li class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</span></li>';
+                echo '<span class="item-cat item-cat-' . $cat_id . ' item-cat-' . $cat_nicename . '"><a class="bread-cat bread-cat-' . $cat_id . ' bread-cat-' . $cat_nicename . '" href="' . $cat_link . '" title="' . $cat_name . '">' . $cat_name . '</a></span>';
+                echo '<span class="separator"> ' . $separator . ' </span>';
+                echo '<span class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</span></span>';
 
             } else {
 
-                echo '<li class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</span></li>';
+                echo '<span class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</span></span>';
 
             }
 
         } else if ( is_category() ) {
 
             // Category page
-            echo '<li class="item-current item-cat"><span class="bread-current bread-cat">' . single_cat_title('', false) . '</span></li>';
+            echo '<span class="item-current item-cat"><span class="bread-current bread-cat">' . single_cat_title('', false) . '</span></span>';
 
         } else if ( is_page() ) {
 
@@ -557,20 +559,20 @@ function easy_breadcrumbs() {
                 // Parent page loop
                 if ( !isset( $parents ) ) $parents = null;
                 foreach ( $anc as $ancestor ) {
-                    $parents .= '<li class="item-parent item-parent-' . $ancestor . '"><a class="bread-parent bread-parent-' . $ancestor . '" href="' . get_permalink($ancestor) . '" title="' . get_the_title($ancestor) . '">' . get_the_title($ancestor) . '</a></li>';
-                    $parents .= '<li class="separator separator-' . $ancestor . '"> ' . $separator . ' </li>';
+                    $parents .= '<span class="item-parent item-parent-' . $ancestor . '"><a class="bread-parent bread-parent-' . $ancestor . '" href="' . get_permalink($ancestor) . '" title="' . get_the_title($ancestor) . '">' . get_the_title($ancestor) . '</a></span>';
+                    $parents .= '<span class="separator separator-' . $ancestor . '"> ' . $separator . ' </span>';
                 }
 
                 // Display parent pages
                 echo $parents;
 
                 // Current page
-                echo '<li class="item-current item-' . $post->ID . '"><span title="' . get_the_title() . '"> ' . get_the_title() . '</span></li>';
+                echo '<span class="item-current item-' . $post->ID . '"><span title="' . get_the_title() . '"> ' . get_the_title() . '</span></span>';
 
             } else {
 
                 // Just display current page if not parents
-                echo '<li class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '"> ' . get_the_title() . '</span></li>';
+                echo '<span class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '"> ' . get_the_title() . '</span></span>';
 
             }
 
@@ -588,38 +590,38 @@ function easy_breadcrumbs() {
             $get_term_name  = $terms[0]->name;
 
             // Display the tag name
-            echo '<li class="item-current item-tag-' . $get_term_id . ' item-tag-' . $get_term_slug . '"><span class="bread-current bread-tag-' . $get_term_id . ' bread-tag-' . $get_term_slug . '">' . $get_term_name . '</span></li>';
+            echo '<span class="item-current item-tag-' . $get_term_id . ' item-tag-' . $get_term_slug . '"><span class="bread-current bread-tag-' . $get_term_id . ' bread-tag-' . $get_term_slug . '">' . $get_term_name . '</span></span>';
 
         } elseif ( is_day() ) {
 
             // Day archive
 
             // Year link
-            echo '<li class="item-year item-year-' . get_the_time('Y') . '"><a class="bread-year bread-year-' . get_the_time('Y') . '" href="' . get_year_link( get_the_time('Y') ) . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</a></li>';
-            echo '<li class="separator separator-' . get_the_time('Y') . '"> ' . $separator . ' </li>';
+            echo '<span class="item-year item-year-' . get_the_time('Y') . '"><a class="bread-year bread-year-' . get_the_time('Y') . '" href="' . get_year_link( get_the_time('Y') ) . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</a></span>';
+            echo '<span class="separator separator-' . get_the_time('Y') . '"> ' . $separator . ' </span>';
 
             // Month link
-            echo '<li class="item-month item-month-' . get_the_time('m') . '"><a class="bread-month bread-month-' . get_the_time('m') . '" href="' . get_month_link( get_the_time('Y'), get_the_time('m') ) . '" title="' . get_the_time('M') . '">' . get_the_time('M') . ' Archives</a></li>';
-            echo '<li class="separator separator-' . get_the_time('m') . '"> ' . $separator . ' </li>';
+            echo '<span class="item-month item-month-' . get_the_time('m') . '"><a class="bread-month bread-month-' . get_the_time('m') . '" href="' . get_month_link( get_the_time('Y'), get_the_time('m') ) . '" title="' . get_the_time('M') . '">' . get_the_time('M') . ' Archives</a></span>';
+            echo '<span class="separator separator-' . get_the_time('m') . '"> ' . $separator . ' </span>';
 
             // Day display
-            echo '<li class="item-current item-' . get_the_time('j') . '"><span class="bread-current bread-' . get_the_time('j') . '"> ' . get_the_time('jS') . ' ' . get_the_time('M') . ' Archives</span></li>';
+            echo '<span class="item-current item-' . get_the_time('j') . '"><span class="bread-current bread-' . get_the_time('j') . '"> ' . get_the_time('jS') . ' ' . get_the_time('M') . ' Archives</span></span>';
 
         } else if ( is_month() ) {
 
             // Month Archive
 
             // Year link
-            echo '<li class="item-year item-year-' . get_the_time('Y') . '"><a class="bread-year bread-year-' . get_the_time('Y') . '" href="' . get_year_link( get_the_time('Y') ) . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</a></li>';
-            echo '<li class="separator separator-' . get_the_time('Y') . '"> ' . $separator . ' </li>';
+            echo '<span class="item-year item-year-' . get_the_time('Y') . '"><a class="bread-year bread-year-' . get_the_time('Y') . '" href="' . get_year_link( get_the_time('Y') ) . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</a></span>';
+            echo '<span class="separator separator-' . get_the_time('Y') . '"> ' . $separator . ' </span>';
 
             // Month display
-            echo '<li class="item-month item-month-' . get_the_time('m') . '"><span class="bread-month bread-month-' . get_the_time('m') . '" title="' . get_the_time('M') . '">' . get_the_time('M') . ' Archives</span></li>';
+            echo '<span class="item-month item-month-' . get_the_time('m') . '"><span class="bread-month bread-month-' . get_the_time('m') . '" title="' . get_the_time('M') . '">' . get_the_time('M') . ' Archives</span></span>';
 
         } else if ( is_year() ) {
 
             // Display year archive
-            echo '<li class="item-current item-current-' . get_the_time('Y') . '"><span class="bread-current bread-current-' . get_the_time('Y') . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</span></li>';
+            echo '<span class="item-current item-current-' . get_the_time('Y') . '"><span class="bread-current bread-current-' . get_the_time('Y') . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</span></span>';
 
         } else if ( is_author() ) {
 
@@ -630,25 +632,25 @@ function easy_breadcrumbs() {
             $userdata = get_userdata( $author );
 
             // Display author name
-            echo '<li class="item-current item-current-' . $userdata->user_nicename . '"><span class="bread-current bread-current-' . $userdata->user_nicename . '" title="' . $userdata->display_name . '">' . 'Author: ' . $userdata->display_name . '</span></li>';
+            echo '<span class="item-current item-current-' . $userdata->user_nicename . '"><span class="bread-current bread-current-' . $userdata->user_nicename . '" title="' . $userdata->display_name . '">' . 'Author: ' . $userdata->display_name . '</span></span>';
 
         } else if ( get_query_var('paged') ) {
 
             // Paginated archives
-            echo '<li class="item-current item-current-' . get_query_var('paged') . '"><span class="bread-current bread-current-' . get_query_var('paged') . '" title="Page ' . get_query_var('paged') . '">'.__('Page') . ' ' . get_query_var('paged') . '</span></li>';
+            echo '<span class="item-current item-current-' . get_query_var('paged') . '"><span class="bread-current bread-current-' . get_query_var('paged') . '" title="Page ' . get_query_var('paged') . '">'.__('Page') . ' ' . get_query_var('paged') . '</span></span>';
 
         } else if ( is_search() ) {
 
             // Search results page
-            echo '<li class="item-current item-current-' . get_search_query() . '"><span class="bread-current bread-current-' . get_search_query() . '" title="Search results for: ' . get_search_query() . '">Search results for: ' . get_search_query() . '</span></li>';
+            echo '<span class="item-current item-current-' . get_search_query() . '"><span class="bread-current bread-current-' . get_search_query() . '" title="Search results for: ' . get_search_query() . '">Search results for: ' . get_search_query() . '</span></span>';
 
         } elseif ( is_404() ) {
 
             // 404 page
-            echo '<li>' . 'Error 404' . '</li>';
+            echo '<span>' . 'Error 404' . '</span>';
         }
 
-        echo '</ul>';
+        echo '</div>';
 
     }
 
@@ -682,5 +684,174 @@ function disable_emojicons_tinymce( $plugins ) {
     return array();
   }
 }
+
+// enqueue_scripts: make sure to include ajaxurl, so we know where to send the post request
+// https://github.com/tokmak/wp-load-more-ajax
+function dt_add_main_js(){
+  wp_localize_script( 'wpeScripts', 'headJS', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'templateurl' => get_template_directory_uri(), 'posts_per_page' => get_option('posts_per_page') ) );
+}
+add_action( 'wp_enqueue_scripts', 'dt_add_main_js', 90);
+
+add_action( "wp_ajax_load_more", "load_more_func" ); // when logged in
+add_action( "wp_ajax_nopriv_load_more", "load_more_func" );//when logged out
+//function return new posts based on offset and posts per page value
+function load_more_func() {
+  //verifying nonce here
+  if ( !wp_verify_nonce( $_REQUEST['nonce'], "load_posts" ) ) {
+    exit("No naughty business please");
+  }
+  $offset = isset($_REQUEST['offset'])?intval($_REQUEST['offset']):0;
+  $posts_per_page = isset($_REQUEST['posts_per_page'])?intval($_REQUEST['posts_per_page']):10;
+  //optional, if post type is not defined use regular post type
+  $post_type = isset($_REQUEST['post_type'])?$_REQUEST['post_type']:'post';
+
+  ob_start(); // buffer output instead of echoing it
+  $args = array(
+    'post_type'=>$post_type,
+    'offset' => $offset,
+    'posts_per_page' => $posts_per_page,
+    'orderby' => 'date',
+    'order' => 'DESC'
+  );
+  $posts_query = new WP_Query( $args );
+
+
+  if ($posts_query->have_posts()) {
+    //if we have posts:
+      $result['have_posts'] = true; //set result array item "have_posts" to true
+
+      while ( $posts_query->have_posts() ) : $posts_query->the_post(); ?>
+        <li id="post-<?php the_ID(); ?>" <?php post_class('item styled-block'); ?> data-post-id="<?php the_ID(); ?>">
+          <div class="top">
+            <a class="post-link" href="<?php the_permalink(); ?>" rel="nofollow"><?php the_title(); ?></a>
+            <span class="date"><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' назад'; ?></span>
+          </div>
+          <div class="content">
+            <div class="text-in">
+              <?php wpeExcerpt('wpeExcerpt40'); ?>
+              <div class="twoe_vk_gp_images_galery items1">
+                <div class="twoe_vk_gp_images_galery_item item_1">
+                  <div class="twoe_vk_gp_images_galery_item_in">
+                    <a rel="nofollow" class="feature-img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                      <?php if ( has_post_thumbnail()) { ?>
+                        <img src="<?php echo the_post_thumbnail_url('medium'); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+                      <?php } else { ?>
+                        <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+                      <?php } ?>
+                    </a><!-- /post thumbnail -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post-bottom">
+            <a class="likes"><i class="fa icon"></i><span class="title hide-on-mobile">Нравится</span><span class="title title-m show-on-mobile">Нрав.</span> <span class="number">0</span> </a>
+            <a class="comments" href="<?php the_permalink(); ?>/#post-comments"> <i class="fa icon"></i> <span class="title hide-on-mobile">Комментарии</span> <span class="title title-m show-on-mobile">Коммент.</span> <span class="number"><?php comments_number( '0', '1', '%' ); ?></span> </a>
+            <a class="more" href="<?php the_permalink(); ?>"> <i class="fa icon"></i> <span class="title hide-on-mobile">Подробнее</span> <span class="title title-m show-on-mobile">Подробнее</span> </a>
+          </div>
+        </li>
+
+      <?php endwhile;
+    $result['html'] = ob_get_clean(); // put alloutput data into "html" item
+  } else {
+    //no posts found
+    $result['have_posts'] = false; // return that there is no posts found
+  }
+
+  if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    $result = json_encode($result); // encode result array into json feed
+    echo $result; // by echo we return JSON feed on POST request sent via AJAX
+  }
+  else {
+    header("Location: ".$_SERVER["HTTP_REFERER"]);
+  }
+  die();
+}
+
+// https://code.tutsplus.com/articles/how-to-create-a-simple-post-rating-system-with-wordpress-and-jquery--wp-24474
+add_action('wp_ajax_nopriv_post-like', 'post_like');
+add_action('wp_ajax_post-like', 'post_like');
+
+function post_like() {
+    // Check for nonce security
+    $nonce = $_POST['nonce'];
+
+    if ( ! wp_verify_nonce( $nonce, 'ajax-nonce' ) )
+        die ( 'Busted!');
+
+    if(isset($_POST['post_like']))
+    {
+        // Retrieve user IP address
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $post_id = $_POST['post_id'];
+
+        // Get voters'IPs for the current post
+        $meta_IP = get_post_meta($post_id, "voted_IP");
+        $voted_IP = $meta_IP[0];
+
+        if(!is_array($voted_IP))
+            $voted_IP = array();
+
+        // Get votes count for the current post
+        $meta_count = get_post_meta($post_id, "votes_count", true);
+
+        // Use has already voted ?
+        if(!hasAlreadyVoted($post_id))
+        {
+            $voted_IP[$ip] = time();
+
+            // Save IP and increase votes count
+            update_post_meta($post_id, "voted_IP", $voted_IP);
+            update_post_meta($post_id, "votes_count", ++$meta_count);
+
+            // Display count (ie jQuery return value)
+            echo $meta_count;
+        }
+        else
+          echo "already";
+    }
+    exit;
+}
+
+function hasAlreadyVoted($post_id) {
+    global $timebeforerevote;
+
+    // Retrieve post votes IPs
+    $meta_IP = get_post_meta($post_id, "voted_IP");
+    $voted_IP = $meta_IP[0];
+
+    if(!is_array($voted_IP))
+        $voted_IP = array();
+
+    // Retrieve current user IP
+    $ip = $_SERVER['REMOTE_ADDR'];
+
+    // If user has already voted
+    if(in_array($ip, array_keys($voted_IP)))
+    {
+        $time = $voted_IP[$ip];
+        $now = time();
+
+        // Compare between current time and vote time
+        if(round(($now - $time) / 60) > $timebeforerevote)
+            return false;
+
+        return true;
+    }
+
+    return false;
+}
+function getPostLikeLink($post_id) {
+  $vote_count = get_post_meta($post_id, "votes_count", true);
+
+  if(hasAlreadyVoted($post_id)) {
+    $output .= '<a class="likes voted" data-nonce="'. wp_create_nonce("ajax-nonce") .'" data-post_id="'. get_the_ID() .'" ><i class="fa icon"></i><span class="title hide-on-mobile">Нравится</span><span class="title title-m show-on-mobile">Нрав.</span> <span class="number">'. $vote_count .'</span> </a>';
+  } else {
+    $output .= '<a class="likes" data-nonce="'. wp_create_nonce("ajax-nonce") .'" data-post_id="'. get_the_ID() .'" ><i class="fa icon"></i><span class="title hide-on-mobile">Нравится</span><span class="title title-m show-on-mobile">Нрав.</span> <span class="number">0</span> </a>';
+  }
+
+  return $output;
+}
+
 
 ?>

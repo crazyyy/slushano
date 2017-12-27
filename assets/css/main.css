@@ -6356,4 +6356,54 @@ select {
   }
 }
 
+.widget .textwidget {
+  padding: 15px;
+}
+
+.widget .textwidget p {
+  margin-bottom: 14px;
+}
+
+.widget .textwidget p br {
+  display: block;
+  height: 10px;
+}
+
+.widget .sb-title {
+  float: none;
+}
+
+.widget ul,
+.widget ol,
+.widget li {
+  padding: 15px;
+  list-style: none;
+}
+
+.widget ul li,
+.widget ol li,
+.widget li li {
+  padding: 0;
+}
+
+.page-title h1 a {
+  font-family: 'Exo 2',sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.load-more.end_of_posts {
+  display: none;
+}
+
+.likes.voted .icon:before {
+  content: '\f004' !important;
+}
+
+.likes.voted .title {
+  color: #555555;
+}
+
 /*# sourceMappingURL=maps/main.css.map */

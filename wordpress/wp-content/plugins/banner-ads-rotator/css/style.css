@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+
+
+/*CSS front page*/
+
+.bar-container {
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+.bar-container img{
+  margin: 0;
+  padding: 0;
+  width:100%;
+  height:100%;
+}

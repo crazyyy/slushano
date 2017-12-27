@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
@@ -42,11 +40,12 @@
           <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="" class="hide-on-mobile">
           <img src="<?php echo get_template_directory_uri(); ?>/img/logo-mobile.png" alt="" class="show-on-mobile"> </a>
         <div class="search"><i class="fa fa-search search-icon"></i>
-          <form>
+          <form method="get" action="<?php echo home_url(); ?>" role="search">
             <div class="f-item">
-              <input type="text" name="query" class="query" placeholder="Введите страну / область / район / город"> <i class="fa fa-search loupe-icon"></i> <i class="fa fa-refresh fa-spin preloader-icon"></i> <i class="fa fa-times hide-results-icon"></i></div>
-            <div class="search-results">
-              <ul></ul>
+              <input type="text" name="s" placeholder="Что ищем?" class="query">
+              <i class="fa fa-search loupe-icon"></i>
+              <i class="fa fa-refresh fa-spin preloader-icon"></i>
+              <i class="fa fa-times hide-results-icon"></i>
             </div>
           </form>
         </div>

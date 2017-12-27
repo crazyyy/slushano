@@ -1,7 +1,59 @@
-@import "oldsite/css";
-@import "oldsite/front-styles";
-@import "oldsite/front-styles_2";
-@import "oldsite/style";
-@import "oldsite/tooltipster.bundle.min";
-@import "oldsite/nivo-lightbox";
-@import "oldsite/main";
+@import 'oldsite/css';
+@import 'oldsite/front-styles';
+@import 'oldsite/front-styles_2';
+@import 'oldsite/style';
+@import 'oldsite/tooltipster.bundle.min';
+@import 'oldsite/nivo-lightbox';
+@import 'oldsite/main';
+
+.widget {
+  .textwidget {
+    padding: 15px;
+    p {
+      margin-bottom: 14px;
+      br {
+        display: block;
+
+        height: 10px;
+      }
+    }
+  }
+  .sb-title {
+    float: none;
+  }
+  ul,
+  ol,
+  li {
+    padding: 15px;
+
+    list-style: none;
+    li {
+      padding: 0;
+    }
+  }
+}
+.page-title {
+  h1 {
+    a {
+      font-family: 'Exo 2',sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+
+      color: #ffffff;
+      text-shadow: 0 1px 4px rgba(0,0,0,.8);
+    }
+  }
+}
+.load-more.end_of_posts {
+  display: none;
+}
+.likes.voted {
+  .icon {
+    &:before {
+      content: '\f004' !important;
+    }
+  }
+  .title {
+    color: #555555;
+  }
+}
