@@ -174,3 +174,10 @@ jQuery(document).ready(function() {
     return false;
   })
 })
+
+$(function() {
+  $('.goback').on('click', function(e){
+    e.preventDefault();
+    window.history.back();
+  })
+});

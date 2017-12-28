@@ -1,33 +1,59 @@
 <?php get_header(); ?>
 
-  <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  <div class="left-content">
 
-      <h1 class="single-title inner-title"><?php the_title(); ?></h1>
-      <?php if ( has_post_thumbnail()) :?>
-        <a class="single-thumb" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-          <?php the_post_thumbnail(); // Fullsize image for the single post ?>
-        </a>
-      <?php endif; ?><!-- /post thumbnail -->
+    <?php $adrotate = adrotate_group(1); if (strpos($adrotate, 'Error') == false  ) { ?>
+      <div class="styled-block">
+        <?php echo $adrotate; ?>
+      </div>
+    <?php } ?>
 
-      <span class="date"><?php the_time('d F Y'); ?> <?php the_time('H:i'); ?></span>
-      <span class="author"><?php _e( 'Published by', 'wpeasy' ); ?> <?php the_author_posts_link(); ?></span>
-      <span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'wpeasy' ), __( '1 Comment', 'wpeasy' ), __( '% Comments', 'wpeasy' )); ?></span><!-- /post details -->
+    <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+      <div id="post-<?php the_ID(); ?>" <?php post_class('info-block styled-block no-padding single-post'); ?>>
 
-      <?php the_content(); ?>
+        <div class="top">
+          <?php if (function_exists('easy_breadcrumbs')) easy_breadcrumbs(); ?>
+        </div>
 
-      <?php the_tags( __( 'Tags: ', 'wpeasy' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+        <div class="content" itemscope="" itemtype="http://schema.org/BlogPosting">
+          <div class="article-body" itemprop="articleBody">
 
-      <p><?php _e( 'Categorised in: ', 'wpeasy' ); the_category(', '); // Separated by commas ?></p>
+            <div class="page-title" itemprop="headline">
+              <h1><?php the_title(); ?></h1></div>
+            <div class="post-date"><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' назад'; ?></div>
+            <div class="text-in">
+              <?php the_content(); ?>
+            </div>
 
-      <p><?php _e( 'This post was written by ', 'wpeasy' ); the_author(); ?></p>
+          </div>
 
-      <?php edit_post_link(); ?>
+          <div class="post-tags">
+            <?php the_tags( ' ', ' ', '<br>'); // Separated by commas with a line break at the end ?>
+          </div>
 
-      <?php comments_template(); ?>
+        </div>
 
-    </article>
-  <?php endwhile; endif; ?>
+        <div class="post-bottom item" data-post-id="<?php the_ID(); ?>">
+          <?php echo getPostLikeLink(get_the_ID()); ?>
+
+          <a class="comments" href="#post-comments"> <i class="fa icon"></i> <span class="title hide-on-mobile">Комментарии</span> <span class="title title-m show-on-mobile">Коммент.</span> <span class="number"><?php comments_number( '0', '1', '%' ); ?></span> </a>
+
+          <a class="more goback back-icon" href="#"> <i class="fa icon"></i> <span class="title hide-on-mobile">Вернуться назад</span> <span class="title title-m show-on-mobile">Назад</span> </a>
+        </div>
+      </div>
+    <?php endwhile; endif; ?>
+
+    <?php related_posts(); ?>
+
+    <?php $adrotate = adrotate_group(1); if (strpos($adrotate, 'Error') == false  ) { ?>
+      <div class="styled-block">
+        <?php echo $adrotate; ?>
+      </div>
+    <?php } ?>
+
+    <?php comments_template(); ?>
+
+  </div>
 
   <?php get_sidebar(); ?>
 

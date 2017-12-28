@@ -6356,6 +6356,10 @@ select {
   }
 }
 
+.widget {
+  margin-bottom: 15px;
+}
+
 .widget .textwidget {
   padding: 15px;
 }
@@ -6386,6 +6390,61 @@ select {
   padding: 0;
 }
 
+.widget form {
+  padding: 15px;
+}
+
+.widget form label {
+  font-size: 13px !important;
+  line-height: 17px !important;
+  float: left !important;
+  width: 100% !important;
+  margin: 0 !important;
+  color: #555555 !important;
+}
+
+.widget form textarea {
+  font-family: 'Roboto',sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 200 !important;
+  font-style: italic !important;
+  line-height: 17px !important;
+  float: left !important;
+  width: 100% !important;
+  height: 100px !important;
+  margin-bottom: 10px !important;
+  padding: 10px !important;
+  border: 2px solid #dedede !important;
+  border-radius: 3px !important;
+  outline: none !important;
+  background: #ffffff !important;
+}
+
+.widget form .wpcf7-form-control-wrap {
+  display: block;
+  padding-top: 10px;
+}
+
+.widget form .wpcf7-submit {
+  font-family: 'Roboto',sans-serif !important;
+  font-size: 15px !important;
+  line-height: 40px !important;
+  position: relative !important;
+  float: left !important;
+  width: 100% !important;
+  height: 40px !important;
+  padding: 0 15px 0 15px !important;
+  cursor: pointer !important;
+  transition-duration: .2s !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 3px !important;
+  outline: inherit !important;
+  background: #236999 !important;
+}
+
 .page-title h1 a {
   font-family: 'Exo 2',sans-serif;
   font-size: 18px;
@@ -6404,6 +6463,30 @@ select {
 
 .likes.voted .title {
   color: #555555;
+}
+
+.comment-image-reloaded img {
+  position: relative !important;
+  width: auto !important;
+  height: auto !important;
+  border: 0 !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+}
+
+.comment-form-email,
+.comment-form-url {
+  display: none;
+}
+
+#comment-image-reloaded-wrapper label {
+  display: block;
+  padding-top: 15px;
+  font-weight: bold;
+}
+
+#comment-image-reloaded-wrapper .cir-link {
+  display: none;
 }
 
 /*# sourceMappingURL=maps/main.css.map */
