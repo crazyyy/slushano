@@ -132,47 +132,10 @@
     color: #555555;
   }
 }
-.comment-image-reloaded {
-  img {
-    position: relative !important;
 
-    width: auto !important;
-    height: auto !important;
 
-    border: 0 !important;
-    border-radius: 2px !important;
-    box-shadow: none !important;
-  }
-}
-.comment-form-email,
-.comment-form-url {
-  display: none;
-}
-#comment-image-reloaded-wrapper {
-  label {
-    font-weight: bold;
-
-    display: block;
-
-    padding-top: 15px;
-  }
-  .cir-link {
-    display: none;
-  }
-}
-.comment-notes {
-  display: none;
-}
-.comment-form-author {
-  margin-bottom: 50px;
-}
-.form-submit {
-  position: relative;
-  top: 30px;
-}
-#comment-image-reloaded-wrapper {
-  position: relative;
-  top: -70px;
+.wpcf7-form-control.wpcf7-file {
+  font-size: 80%;
 }
 .wpcf7-form-control-wrap {
   overflow: hidden;
@@ -188,6 +151,57 @@
 label {
   @extend .clearfix;
 }
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+
+  align-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  .comment-form-email,
+  .comment-notes,
+  .comment-form-url {
+    display: none;
+  }
+  .comment-form-author {
+    margin-bottom: 10px;
+  }
+  .form-submit {
+    order: 2;
+  }
+  #comment-image-reloaded-wrapper {
+    width: 100%;
+    > p {
+      width: 100%;
+    }
+    .comment-image-reloaded {
+      img {
+        position: relative !important;
+
+        width: auto !important;
+        height: auto !important;
+
+        border: 0 !important;
+        border-radius: 2px !important;
+        box-shadow: none !important;
+      }
+    }
+    label {
+      font-weight: bold;
+
+      display: block;
+
+      padding-top: 15px;
+    }
+    .cir-link {
+      display: none;
+    }
+  }
+}
+
+
 .wpcf7-form-control-wrap.acceptance {
   display: inline-block;
   float: left;

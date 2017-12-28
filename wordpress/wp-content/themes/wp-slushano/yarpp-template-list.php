@@ -19,9 +19,9 @@ Author: mitcho (Michael Yoshitaka Erlewine)
       <?php endwhile; ?>
 
     </ul>
-  </div>
+
 <?php else: ?>
   <p>No related posts.</p>
 <?php endif; ?>
 
-
+</div>
