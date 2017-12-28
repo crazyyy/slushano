@@ -94,6 +94,18 @@
       background: #236999 !important;
     }
   }
+  &.widget_recent_comments {
+    .comment-wrap {
+      padding-left: 0 !important;
+    }
+    .comment-avatar {
+      img {
+        overflow: hidden;
+
+        border-radius: 50%;
+      }
+    }
+  }
 }
 .page-title {
   h1 {
@@ -138,12 +150,58 @@
 }
 #comment-image-reloaded-wrapper {
   label {
-    display: block;
-    padding-top: 15px;
     font-weight: bold;
 
+    display: block;
+
+    padding-top: 15px;
   }
   .cir-link {
     display: none;
+  }
+}
+.comment-notes {
+  display: none;
+}
+.comment-form-author {
+  margin-bottom: 50px;
+}
+.form-submit {
+  position: relative;
+  top: 30px;
+}
+#comment-image-reloaded-wrapper {
+  position: relative;
+  top: -70px;
+}
+.wpcf7-form-control-wrap {
+  overflow: hidden;
+
+  padding-top: 0 !important;
+}
+.styled-block {
+  margin-bottom: 15px;
+}
+.styled-block + .styled-block {
+  margin-top: 0;
+}
+label {
+  @extend .clearfix;
+}
+.wpcf7-form-control-wrap.acceptance {
+  display: inline-block;
+  float: left;
+
+  margin-right: 5px;
+}
+
+@media (max-width: 767px) and (min-width: 0) {
+  #footer {
+    .block {
+      width: 100%;
+      padding: 0;
+
+      text-align: left;
+    }
   }
 }

@@ -2209,16 +2209,16 @@ a {
   content: '';
 }
 
-.clearfix {
+.clearfix, label {
   zoom: 1;
 }
 
-.clearfix:before {
+.clearfix:before, label:before {
   display: table;
   content: '';
 }
 
-.clearfix:after {
+.clearfix:after, label:after {
   display: table;
   clear: both;
   content: '';
@@ -6445,6 +6445,15 @@ select {
   background: #236999 !important;
 }
 
+.widget.widget_recent_comments .comment-wrap {
+  padding-left: 0 !important;
+}
+
+.widget.widget_recent_comments .comment-avatar img {
+  overflow: hidden;
+  border-radius: 50%;
+}
+
 .page-title h1 a {
   font-family: 'Exo 2',sans-serif;
   font-size: 18px;
@@ -6480,13 +6489,58 @@ select {
 }
 
 #comment-image-reloaded-wrapper label {
+  font-weight: bold;
   display: block;
   padding-top: 15px;
-  font-weight: bold;
 }
 
 #comment-image-reloaded-wrapper .cir-link {
   display: none;
+}
+
+.comment-notes {
+  display: none;
+}
+
+.comment-form-author {
+  margin-bottom: 50px;
+}
+
+.form-submit {
+  position: relative;
+  top: 30px;
+}
+
+#comment-image-reloaded-wrapper {
+  position: relative;
+  top: -70px;
+}
+
+.wpcf7-form-control-wrap {
+  overflow: hidden;
+  padding-top: 0 !important;
+}
+
+.styled-block {
+  margin-bottom: 15px;
+}
+
+.styled-block + .styled-block {
+  margin-top: 0;
+}
+
+.wpcf7-form-control-wrap.acceptance {
+  display: inline-block;
+  float: left;
+  margin-right: 5px;
+}
+
+@media (max-width: 767px) and (min-width: 0) {
+  #footer .block {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+  }
 }
 
 /*# sourceMappingURL=maps/main.css.map */

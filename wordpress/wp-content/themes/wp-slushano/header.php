@@ -36,9 +36,11 @@
   <div class="main-wrapper">
     <div id="header">
       <div class="container-fluid">
-        <a class="logo">
+        <a class="logo" href="<?php echo home_url(); ?>">
           <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="" class="hide-on-mobile">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/logo-mobile.png" alt="" class="show-on-mobile"> </a>
+          <img src="<?php echo get_template_directory_uri(); ?>/img/logo-mobile.png" alt="" class="show-on-mobile">
+        </a>
+        <?php /* ?>
         <div class="search"><i class="fa fa-search search-icon"></i>
           <form method="get" action="<?php echo home_url(); ?>" role="search">
             <div class="f-item">
@@ -49,6 +51,8 @@
             </div>
           </form>
         </div>
+        <?php */ ?>
+
         <div class="navbar-header">
           <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span></span> </a>
         </div>
