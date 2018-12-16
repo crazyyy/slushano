@@ -6522,15 +6522,6 @@ select {
   width: 100%;
 }
 
-.comment-form #comment-image-reloaded-wrapper .comment-image-reloaded img {
-  position: relative !important;
-  width: auto !important;
-  height: auto !important;
-  border: 0 !important;
-  border-radius: 2px !important;
-  box-shadow: none !important;
-}
-
 .comment-form #comment-image-reloaded-wrapper label {
   font-weight: bold;
   display: block;
@@ -6539,6 +6530,15 @@ select {
 
 .comment-form #comment-image-reloaded-wrapper .cir-link {
   display: none;
+}
+
+.comment-image-reloaded img {
+  position: relative !important;
+  width: auto !important;
+  height: auto !important;
+  border: 0 !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
 }
 
 .wpcf7-form-control-wrap.acceptance {

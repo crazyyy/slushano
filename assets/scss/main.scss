@@ -176,18 +176,6 @@ label {
     > p {
       width: 100%;
     }
-    .comment-image-reloaded {
-      img {
-        position: relative !important;
-
-        width: auto !important;
-        height: auto !important;
-
-        border: 0 !important;
-        border-radius: 2px !important;
-        box-shadow: none !important;
-      }
-    }
     label {
       font-weight: bold;
 
@@ -201,7 +189,18 @@ label {
   }
 }
 
+.comment-image-reloaded {
+  img {
+    position: relative !important;
 
+    width: auto !important;
+    height: auto !important;
+
+    border: 0 !important;
+    border-radius: 2px !important;
+    box-shadow: none !important;
+  }
+}
 .wpcf7-form-control-wrap.acceptance {
   display: inline-block;
   float: left;
